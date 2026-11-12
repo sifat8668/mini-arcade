@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  
+
 <link rel="manifest" href="./manifest.json">
 
 <meta name="theme-color" content="#050506">
@@ -2503,4 +2503,18 @@ HELP.soccer+='<p>Each team has five discs. Blue attacks the right goal, red atta
 
 shuf();render();
 </script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register(
+      "./service-worker.js",
+      { scope: "./" }
+    ).catch(error => {
+      console.error("Service Worker registration failed:", error);
+    });
+  });
+}
+</script>
+
 </body></html>
